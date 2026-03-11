@@ -1,9 +1,8 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useApp } from "../context/AppContext";
 import ImageUploader from "../components/ImageUploader";
 import ResultCard from "../components/ResultCard";
 import ResultSkeleton from "../components/ResultSkeleton";
-import ChatbotPanel from "../components/ChatbotPanel";
 import generateResult from "../utils/generateResult";
 
 function StepHeader({ num, label, title, desc, active }) {
@@ -19,13 +18,11 @@ function StepHeader({ num, label, title, desc, active }) {
   );
 }
 
-export default function AnalyzePage() {
+export default function AnalyzePage({ onNavigate }) {
   const { setAnalysisResult, setAnalysisImage } = useApp();
   const [image, setImage] = useState(null);
   const [analyzing, setAnalyzing] = useState(false);
   const [result, setResult] = useState(null);
-  const chatRef = useRef(null);
-  const prefillRef = useRef(null);
 
   const handleImageSelect = (img) => {
     setImage(img);
@@ -46,10 +43,7 @@ export default function AnalyzePage() {
   };
 
   const askChatbot = () => {
-    chatRef.current?.scrollIntoView({ behavior: "smooth" });
-    if (result && prefillRef.current) {
-      setTimeout(() => prefillRef.current(`My analysis shows ${result.hydrationPercent}% hydration (${result.status}). Moisture: ${result.moistureLevel}, Skin: ${result.skinType}. Please give a detailed explanation and personalized skincare routine.`), 700);
-    }
+    onNavigate("chat");
   };
 
   return (
@@ -180,12 +174,6 @@ export default function AnalyzePage() {
             /* Idle skeleton — always show so user knows Step 2 exists */
             <ResultSkeleton />
           )}
-        </section>
-
-        {/* ── Step 3: Chatbot ── */}
-        <section ref={chatRef} style={{ borderTop: "1px solid var(--border)", paddingTop: "4rem" }}>
-          <StepHeader num="3" label="Expert Chat" title="Ask the AI Skin Expert" desc="Get personalized advice, product recommendations, and deep explanations from our Claude-powered dermatology AI." active={true} />
-          <ChatbotPanel hydrationResult={result} prefillRef={prefillRef} />
         </section>
 
       </div>

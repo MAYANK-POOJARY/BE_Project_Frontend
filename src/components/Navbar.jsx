@@ -30,7 +30,7 @@ export default function Navbar({ currentPage, onNavigate }) {
       borderBottom: scrolled ? "1px solid var(--border)" : "none",
       transition: "all 0.3s"
     }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 2rem", height: 68, display: "flex", alignItems: "center", gap: "1rem" }}>
+      <div style={{ maxWidth: 1300, margin: "0 auto", padding: "0 2rem", height: 68, display: "flex", alignItems: "center", gap: "1rem" }}>
         {/* Logo */}
         <div onClick={() => go("home")} style={{ display: "flex", alignItems: "center", gap: "0.6rem", cursor: "pointer", flexShrink: 0 }}>
           <div style={{ width: 36, height: 36, borderRadius: 10, background: "var(--grad1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1rem", color: "#05080f", fontWeight: 900, boxShadow: "0 0 20px var(--teal-glow)" }}>◈</div>

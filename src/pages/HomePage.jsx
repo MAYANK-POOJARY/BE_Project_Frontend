@@ -28,6 +28,9 @@ export default function HomePage({ onNavigate }) {
               <button onClick={() => onNavigate("analyze")} style={{ padding: "14px 32px", borderRadius: "var(--radius)", background: "var(--grad1)", border: "none", color: "#05080f", fontWeight: 800, fontSize: "1rem", boxShadow: "0 0 40px var(--teal-glow)", cursor: "pointer", transition: "all 0.25s" }} onMouseEnter={e => e.target.style.transform = "translateY(-3px)"} onMouseLeave={e => e.target.style.transform = "none"}>
                 ✦ Analyze My Skin
               </button>
+              <button onClick={() => onNavigate("chat")} style={{ padding: "14px 32px", borderRadius: "var(--radius)", background: "var(--grad1)", border: "none", color: "#05080f", fontWeight: 800, fontSize: "1rem", boxShadow: "0 0 40px var(--teal-glow)", cursor: "pointer", transition: "all 0.25s" }} onMouseEnter={e => e.target.style.transform = "translateY(-3px)"} onMouseLeave={e => e.target.style.transform = "none"}>
+                Chatbot
+              </button>
               <button onClick={() => onNavigate("how-it-works")} style={{ padding: "14px 28px", borderRadius: "var(--radius)", background: "transparent", border: "1px solid var(--border2)", color: "var(--text)", fontWeight: 600, fontSize: "1rem", cursor: "pointer", transition: "all 0.2s" }} onMouseEnter={e => { e.target.style.borderColor = "var(--teal)"; e.target.style.color = "var(--teal)"; }} onMouseLeave={e => { e.target.style.borderColor = "var(--border2)"; e.target.style.color = "var(--text)"; }}>
                 How It Works →
               </button>
